@@ -2,9 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit)
 
-DeepSeek Coder is a day-one-ready VS Code extension scaffold for asking DeepSeek questions, explaining selected code, generating code from selected prompts or snippets, and reviewing selected code.
-
-The extension uses the included DeepSeek icon in the VS Code activity bar and chat controls.
+DeepSeek Coder is a VS Code extension for asking DeepSeek questions, explaining selected code, generating code from selected prompts or snippets, and reviewing selected code.
 
 ## Install
 
