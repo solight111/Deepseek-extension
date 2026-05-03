@@ -1,0 +1,143 @@
+{
+  "name": "deepseek-coder",
+  "displayName": "DeepSeek Coder",
+  "description": "AI-powered coding assistant powered by DeepSeek",
+  "version": "0.1.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Chat",
+    "Programming Languages",
+    "Machine Learning"
+  ],
+  "activationEvents": [
+    "onView:deepseek.chatView",
+    "onCommand:deepseek.askQuestion",
+    "onCommand:deepseek.explainCode",
+    "onCommand:deepseek.generateCode",
+    "onCommand:deepseek.reviewCode",
+    "onCommand:deepseek.openChat",
+    "onCommand:deepseek.setApiKey"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "deepseek.askQuestion",
+        "title": "Ask DeepSeek"
+      },
+      {
+        "command": "deepseek.explainCode",
+        "title": "DeepSeek: Explain This Code"
+      },
+      {
+        "command": "deepseek.generateCode",
+        "title": "DeepSeek: Generate Code"
+      },
+      {
+        "command": "deepseek.reviewCode",
+        "title": "DeepSeek: Review Code"
+      },
+      {
+        "command": "deepseek.openChat",
+        "title": "Open DeepSeek Chat"
+      },
+      {
+        "command": "deepseek.setApiKey",
+        "title": "DeepSeek: Set API Key"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "deepseek.explainCode",
+          "when": "editorHasSelection",
+          "group": "deepseek"
+        },
+        {
+          "command": "deepseek.generateCode",
+          "when": "editorHasSelection",
+          "group": "deepseek"
+        },
+        {
+          "command": "deepseek.reviewCode",
+          "when": "editorHasSelection",
+          "group": "deepseek"
+        }
+      ]
+    },
+    "keybindings": [
+      {
+        "command": "deepseek.askQuestion",
+        "key": "ctrl+shift+d",
+        "mac": "cmd+shift+d"
+      }
+    ],
+    "configuration": {
+      "title": "DeepSeek",
+      "properties": {
+        "deepseek.model": {
+          "type": "string",
+          "enum": [
+            "deepseek-v4-pro",
+            "deepseek-v4-flash",
+            "deepseek-chat",
+            "deepseek-coder"
+          ],
+          "default": "deepseek-v4-pro",
+          "description": "Choose the DeepSeek model to use"
+        },
+        "deepseek.temperature": {
+          "type": "number",
+          "default": 0.7,
+          "minimum": 0,
+          "maximum": 2,
+          "description": "Controls randomness in responses (0-2)"
+        },
+        "deepseek.maxTokens": {
+          "type": "number",
+          "default": 2048,
+          "minimum": 1,
+          "maximum": 8192,
+          "description": "Maximum tokens in response"
+        }
+      }
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "deepseek-sidebar",
+          "title": "DeepSeek",
+          "icon": "$(comment-discussion)"
+        }
+      ]
+    },
+    "views": {
+      "deepseek-sidebar": [
+        {
+          "type": "webview",
+          "id": "deepseek.chatView",
+          "name": "Chat"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "webpack --mode production",
+    "compile": "webpack --mode development",
+    "watch": "webpack --mode development --watch",
+    "check": "npm run compile",
+    "package": "vsce package --no-dependencies"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/vscode": "^1.85.0",
+    "@vscode/vsce": "^3.2.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
