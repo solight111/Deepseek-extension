@@ -2,6 +2,40 @@
 
 DeepSeek Coder is a day-one-ready VS Code extension scaffold for asking DeepSeek questions, explaining selected code, generating code from selected prompts or snippets, and reviewing selected code.
 
+## Install
+
+### From a VSIX file
+
+1. Download the latest `.vsix` package from this project's releases.
+2. Open VS Code.
+3. Open the Extensions view.
+4. Select **Install from VSIX...** from the Extensions view menu.
+5. Choose the downloaded `.vsix` file.
+6. Reload VS Code if prompted.
+
+You can also install from the command line:
+
+```bash
+code --install-extension deepseek-coder-0.1.0.vsix
+```
+
+### From source
+
+Clone the repository, install dependencies, and build the extension:
+
+```bash
+npm install
+npm run compile
+```
+
+For active development with automatic rebuilds:
+
+```bash
+npm run watch
+```
+
+Then open the folder in VS Code and press `F5` to launch an Extension Development Host.
+
 ## Build
 
 ```bash
