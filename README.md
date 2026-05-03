@@ -1,6 +1,12 @@
 # DeepSeek Coder VS Code Extension
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+
+![DeepSeek Coder icon](media/deepseek.svg)
+
 DeepSeek Coder is a day-one-ready VS Code extension scaffold for asking DeepSeek questions, explaining selected code, generating code from selected prompts or snippets, and reviewing selected code.
+
+The extension uses the included DeepSeek icon in the VS Code activity bar and chat controls.
 
 ## Install
 
@@ -67,3 +73,7 @@ The extension uses DeepSeek's OpenAI-compatible API at `https://api.deepseek.com
 ## Notes
 
 The sidebar chat supports streaming responses, a nonce-based Content Security Policy, local Markdown rendering without a CDN dependency, and request cancellation via `AbortController`.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md).

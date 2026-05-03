@@ -110,7 +110,7 @@
         {
           "id": "deepseek-sidebar",
           "title": "DeepSeek",
-          "icon": "$(comment-discussion)"
+          "icon": "media/deepseek.svg"
         }
       ]
     },

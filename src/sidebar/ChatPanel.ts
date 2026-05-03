@@ -147,6 +147,9 @@ export class ChatPanel implements vscode.WebviewViewProvider {
 
     private getHtmlContent(webview: vscode.Webview): string {
         const nonce = getNonce();
+        const deepseekIconUri = webview.asWebviewUri(
+            vscode.Uri.joinPath(this.extensionUri, 'media', 'deepseek.svg')
+        );
 
         return `<!DOCTYPE html>
 <html lang="en">
@@ -230,6 +233,15 @@ export class ChatPanel implements vscode.WebviewViewProvider {
             cursor: pointer;
             font-size: 13px;
             transition: background 0.2s;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        button img {
+            width: 14px;
+            height: 14px;
+            flex: 0 0 auto;
         }
         button:hover { background: var(--vscode-button-hoverBackground); }
         button:disabled { opacity: 0.5; cursor: not-allowed; }
@@ -281,10 +293,10 @@ export class ChatPanel implements vscode.WebviewViewProvider {
 </head>
 <body>
     <div class="toolbar">
-        <button id="clear-btn" title="Clear conversation">Clear</button>
-        <button id="api-key-btn" title="Update API key">API Key</button>
+        <button id="clear-btn" title="Clear conversation"><img src="${deepseekIconUri}" alt="" aria-hidden="true">Clear</button>
+        <button id="api-key-btn" title="Update API key"><img src="${deepseekIconUri}" alt="" aria-hidden="true">API Key</button>
         <span style="flex:1"></span>
-        <button id="cancel-btn" title="Cancel current request">Cancel</button>
+        <button id="cancel-btn" title="Cancel current request"><img src="${deepseekIconUri}" alt="" aria-hidden="true">Cancel</button>
     </div>
     <div id="messages">
         <div class="welcome-message">
@@ -294,7 +306,7 @@ export class ChatPanel implements vscode.WebviewViewProvider {
     </div>
     <div id="input-area">
         <textarea id="user-input" rows="2" placeholder="Ask anything about your code..."></textarea>
-        <button id="send-btn">Send</button>
+        <button id="send-btn"><img src="${deepseekIconUri}" alt="" aria-hidden="true">Send</button>
     </div>
 
     <script nonce="${nonce}">
